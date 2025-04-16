@@ -10,12 +10,16 @@ class DiscordAuthResult {
         $this->raw = $raw;
     }
 
+    public function email() : string {
+        return $this->raw['email'] ?? '';
+    }
+
     public function handle() : string {
         return $this->raw['discordHandle'] ?? '';
     }
 
     public function id() : string {
-        return $this->raw['id'] ?? '';
+        return $this->raw['discordId'] ?? '';
     }
 
     public function inNetworkServer() : bool {
