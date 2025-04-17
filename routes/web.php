@@ -8,8 +8,8 @@ Route::get('/', [\App\Http\Controllers\PageController::class, 'index'])->name('h
 Route::get('/logout', [\App\Http\Controllers\PageController::class, 'logout'])->name('logout-get');
 
 // authentication routes
-Route::get('/auth/levelcrush',[\App\Http\Controllers\LevelCrushAuthController::class, 'auth']);
-Route::get('/auth/levelcrush/validate',[\App\Http\Controllers\LevelCrushAuthController::class, 'validate']);
+Route::get('/auth/levelcrush',[\App\Http\Controllers\LevelCrushAuthController::class, 'auth'])->name('levelcrush-auth');
+Route::get('/auth/levelcrush/validate',[\App\Http\Controllers\LevelCrushAuthController::class, 'validate'])->name('levelcrush-auth-validate');
 
 // game routes
 Route::get('/game/all/clan', [\App\Http\Controllers\ClanController::class, 'showNetwork'])->name('clan.overview');
