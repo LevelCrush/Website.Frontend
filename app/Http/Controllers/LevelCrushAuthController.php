@@ -72,7 +72,7 @@ class LevelCrushAuthController extends Controller
                 'user_id' => null, // first time inserting will **never** have a user
                 'entity_id' => $authResult->id(),
                 'email' => $authResult->email(),
-                'metadata' => json_encode($authResult->raw, JSON_FORCE_OBJECT)
+                'metadata' => json_encode($authResult->raw)
             ],
         ], uniqueBy: ['entity_id', 'platform'], update: ['email','metadata']);
 
