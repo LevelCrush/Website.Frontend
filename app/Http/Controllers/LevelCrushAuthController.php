@@ -93,20 +93,23 @@ class LevelCrushAuthController extends Controller
             // we can expect one user to be tied to this at all time
 
             if($emailTaken) {
-                // if somehow our email is already taken. Abort the request
-                // @todo improve the ux of reporting this error to the user
-                abort(403, "Email already taken for registration. Contact suppport");
+               // our email is already in use. Link to this user.
+                $user = User::where('email', $authResult->email())->firstOrFail();
+                $userPlatform->user_id = $user->id;
+                $userPlatform->save();
+
+            } else {
+
+                $user = User::create([
+                    'email' => $authResult->email(),
+                    'name' => $authResult->globalName(),
+                    'password' => Hash::make(bin2hex(random_bytes(32))),
+                ]);
+
+                // update userPlatform model
+                $userPlatform->user_id = $user->id;
+                $userPlatform->save();
             }
-
-            $user = User::create([
-                'email' => $authResult->email(),
-                'name' => $authResult->globalName(),
-                'password' => Hash::make(bin2hex(random_bytes(32))),
-            ]);
-
-            // update userPlatform model
-            $userPlatform->user_id = $user->id;
-            $userPlatform->save();
 
         } else {
             // update linked user
