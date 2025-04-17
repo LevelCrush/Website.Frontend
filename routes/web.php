@@ -7,6 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/auth/levelcrush',[\App\Http\Controllers\LevelCrushAuthController::class, 'auth']);
+Route::get('/auth/levelcrush/validate',[\App\Http\Controllers\LevelCrushAuthController::class, 'validate']);
+
 Route::get('/game/all/clan', [\App\Http\Controllers\ClanController::class, 'showNetwork'])->name('clan.overview');
 Route::get('/game/{game}/clan/network', [\App\Http\Controllers\ClanController::class, 'showNetwork'])->name('clan.overview.network');
 Route::get('/game/{game}/clan/{slug}', [\App\Http\Controllers\ClanController::class, 'showSpecific'])->name('clan.overview.specific');

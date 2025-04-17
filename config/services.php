@@ -35,4 +35,20 @@ return [
         ],
     ],
 
+    'levelcrush' => [
+        'auth' => [
+            'server' => env('AUTH_SERVER', 'http://localhost:6969'),
+            'secret' => env('AUTH_SECRET','idkijustworkhere'),
+            'agent' => env('AUTH_AGENT'),
+            'discord' => [
+                'secret' => env('AUTH_SERVER_DISCORD_SECRET', 'placeholderDiscordSecret'),
+                'enabled' => env('AUTH_SERVER_DISCORD',false)
+            ],
+            'bungie' => [
+                'secret' => env('AUTH_SERVER_BUNGIE_SECRET','placeholderBungieSecret'),
+                'enabled' => env('AUTH_SERVER_BUNGIE', false)
+            ]
+        ]
+    ]
+
 ];
