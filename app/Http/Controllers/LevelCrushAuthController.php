@@ -25,6 +25,11 @@ class LevelCrushAuthController extends Controller
             $userRedirect = $userRedirect[0]; // take only the first input
         }
 
+        if(empty(trim($userRedirect))) {
+            $userRedirect = config('app.url');
+        }
+
+
         $appRedirect = sprintf('%s/auth/levelcrush/validate?token=%s',
             config('app.url'),
             rawurlencode($token)

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Route::get('/', [\App\Http\Controllers\PageController::class, 'index'])->name('home');
+Route::get('/logout', [\App\Http\Controllers\PageController::class, 'logout'])->name('logout-get');
 
 // authentication routes
 Route::get('/auth/levelcrush',[\App\Http\Controllers\LevelCrushAuthController::class, 'auth']);

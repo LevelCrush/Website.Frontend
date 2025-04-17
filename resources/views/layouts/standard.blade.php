@@ -30,7 +30,7 @@
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <x-filament-menu-builder::menu slug="main-navigation" />
+                <x-filament-menu-builder::menu slug="main-navigation" view="filament-menu-builder::components.offcanvas.menu"/>
             </div>
         </div>
     </body>
