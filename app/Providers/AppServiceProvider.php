@@ -7,6 +7,7 @@ use Event;
 use Guava\FilamentKnowledgeBase\Filament\Panels\KnowledgeBasePanel;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Support\ServiceProvider;
+use Z3d0X\FilamentFabricator\Resources\PageResource;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +20,8 @@ class AppServiceProvider extends ServiceProvider
             fn(KnowledgeBasePanel $panel) => $panel
                 ->viteTheme('resources/css/filament/admin/theme.css') // your filament vite theme path here
         );
+
+
     }
 
     /**

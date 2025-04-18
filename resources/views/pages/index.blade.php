@@ -3,5 +3,5 @@
 @section('title', 'Home | Level Crush')
 
 @section('content')
-    <h1>Hello World</h1>
+    <x-filament-fabricator::page-blocks :blocks="$page->blocks" />
 @stop
