@@ -9,6 +9,7 @@
         "php": "^8.2",
         "biostate/filament-menu-builder": "^1.0",
         "filament/filament": "^3.3",
+        "guava/filament-knowledge-base": "^1.13",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1",
         "livewire/flux": "^2.1.1",
