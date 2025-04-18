@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Http\Middleware\LevelCrushAdmin;
+use Biostate\FilamentMenuBuilder\FilamentMenuBuilderPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -19,6 +20,7 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Z3d0X\FilamentFabricator\FilamentFabricatorPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -58,8 +60,9 @@ class AdminPanelProvider extends PanelProvider
                 LevelCrushAdmin::class
             ])
             ->plugins([
-                \Biostate\FilamentMenuBuilder\FilamentMenuBuilderPlugin::make(),
+                FilamentMenuBuilderPlugin::make(),
                 KnowledgeBasePlugin::make(),
+                FilamentFabricatorPlugin::make(),
             ])
             ->theme(asset('css/filament/admin/theme.css'));
     }
