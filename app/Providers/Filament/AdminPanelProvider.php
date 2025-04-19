@@ -3,6 +3,7 @@
 namespace App\Providers\Filament;
 
 use App\Http\Middleware\LevelCrushAdmin;
+use Awcodes\Curator\CuratorPlugin;
 use Biostate\FilamentMenuBuilder\FilamentMenuBuilderPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
@@ -63,6 +64,16 @@ class AdminPanelProvider extends PanelProvider
                 FilamentMenuBuilderPlugin::make(),
                 KnowledgeBasePlugin::make(),
                 FilamentFabricatorPlugin::make(),
+                CuratorPlugin::make()
+                    ->label('Media')
+                    ->pluralLabel('Media')
+                    ->navigationIcon('heroicon-o-photo')
+                    ->navigationGroup('Content')
+                    ->navigationSort(3)
+                    ->navigationCountBadge()
+                    ->registerNavigation(false)
+                    ->defaultListView('grid' || 'list')
+                   // ->resource(\App\Filament\Resources\CustomMediaResource::class)
             ])
             ->theme(asset('css/filament/admin/theme.css'));
     }

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\GameResource\Pages;
 use App\Filament\Resources\GameResource\RelationManagers;
 use App\Models\Game;
+use Awcodes\Curator\Components\Forms\CuratorPicker;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -27,6 +28,7 @@ class GameResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('slug')
                     ->required(),
+
             ])
             ->model(Game::class);
     }
