@@ -61,19 +61,19 @@ class AdminPanelProvider extends PanelProvider
                 LevelCrushAdmin::class
             ])
             ->plugins([
-                FilamentMenuBuilderPlugin::make(),
-                KnowledgeBasePlugin::make(),
-                FilamentFabricatorPlugin::make(),
                 CuratorPlugin::make()
                     ->label('Media')
                     ->pluralLabel('Media')
                     ->navigationIcon('heroicon-o-photo')
                     ->navigationGroup('Content')
-                    ->navigationSort(3)
+                    ->navigationSort(0)
                     ->navigationCountBadge()
-                    ->registerNavigation(false)
-                    ->defaultListView('grid' || 'list')
-                   // ->resource(\App\Filament\Resources\CustomMediaResource::class)
+                    ->registerNavigation(true)
+                    ->defaultListView('grid'),
+                FilamentMenuBuilderPlugin::make(),
+                FilamentFabricatorPlugin::make(),
+                KnowledgeBasePlugin::make(),
+
             ])
             ->theme(asset('css/filament/admin/theme.css'));
     }
