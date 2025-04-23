@@ -2,6 +2,7 @@
 
 namespace App\Lib\Auth;
 
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 
 class AuthClaim
@@ -14,6 +15,9 @@ class AuthClaim
         $this->platform =  $platform;
     }
 
+    /**
+     * @throws ConnectionException
+     */
     public function claim() : array {
 
         $response = Http::asJson()

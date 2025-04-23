@@ -36,10 +36,19 @@ return [
     ],
 
     'levelcrush' => [
+        'rasputin' => [
+            'server' => env('RASPUTIN_SERVER', 'https://rasputin.levelcrush.com'),
+            'secret' => env('RASPUTIN_SECRET', 'idkijustvibehere'),
+            'agent' => env('RASPUTIN_AGENT', ''),
+            'test' => [
+                'membership' => env('RASPUTIN_TEST_MEMBERSHIP', 'placeholder'),
+                'bungie_name' => env('RASPUTIN_TEST_BUNGIE_NAME', ''),
+            ]
+        ],
         'auth' => [
             'server' => env('AUTH_SERVER', 'http://localhost:6969'),
             'secret' => env('AUTH_SECRET','idkijustworkhere'),
-            'agent' => env('AUTH_AGENT'),
+            'agent' => env('AUTH_AGENT',''),
             'discord' => [
                 'secret' => env('AUTH_SERVER_DISCORD_SECRET', 'placeholderDiscordSecret'),
                 'enabled' => env('AUTH_SERVER_DISCORD',false)
