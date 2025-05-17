@@ -30,6 +30,7 @@ Route::middleware(['auth'])->controller(DashboardController::class)->group(funct
     Route::get('/dashboard', 'index')->name('dashboard');
     Route::get('/dashboard/orders', 'orders')->name('dashboard.orders');
     Route::get('/dashboard/integrations', 'integrations')->name('dashboard.integrations');
+    Route::get('/dashboard/rasputin')->name('dashboard.rasputin');
 });
 
 // fallback routes

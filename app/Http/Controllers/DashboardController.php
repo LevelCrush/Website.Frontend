@@ -24,4 +24,10 @@ class DashboardController extends Controller
         $integrations = [];
         return view('pages.dashboard.integrations')->with('integrations', $integrations);
     }
+
+    public function rasputin()
+    {
+        $rasputin = [];
+        return view('pages.dashboard.rasputin')->with('rasputin', $rasputin);
+    }
 }
