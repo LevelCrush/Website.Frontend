@@ -3,27 +3,33 @@
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ClanController;
+use App\Http\Controllers\LevelCrushAuthController;
 
-Route::get('/', [\App\Http\Controllers\PageController::class, 'index'])->name('home');
-Route::get('/logout', [\App\Http\Controllers\PageController::class, 'logout'])->name('logout-get');
+// basic page routes
+Route::controller(PageController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/logout', 'logout')->name('logout-get');
+});
 
 // authentication routes
-Route::get('/auth/levelcrush', [\App\Http\Controllers\LevelCrushAuthController::class, 'auth'])->name('levelcrush-auth');
-Route::get('/auth/levelcrush/validate', [\App\Http\Controllers\LevelCrushAuthController::class, 'validate'])->name('levelcrush-auth-validate');
+Route::controller(LevelCrushAuthController::class)->group(function () {
+    Route::get('/auth/levelcrush', 'auth')->name('levelcrush-auth');
+    Route::get('/auth/levelcrush/validate', 'validate')->name('levelcrush-auth-validate');
+});
 
 // game routes
-Route::get('/game/all/clan', [\App\Http\Controllers\ClanController::class, 'showNetwork'])->name('clan.overview');
-Route::get('/game/{game}/clan/network', [\App\Http\Controllers\ClanController::class, 'showNetwork'])->name('clan.overview.network');
-Route::get('/game/{game}/clan/{slug}', [\App\Http\Controllers\ClanController::class, 'showSpecific'])->name('clan.overview.specific');
+Route::controller(ClanController::class)->group(function () {
+    Route::get('/game/all/clan', 'showNetwork')->name('clan.overview');
+    Route::get('/game/{game}/clan/network', 'showNetwork')->name('clan.overview.network');
+    Route::get('/game/{game}/clan/{slug}', 'showSpecific')->name('clan.overview.specific');
+});
 
-// member dashboard routes
-//iRoute::view('dashboard', 'dashboard')
-//    ->middleware(['auth', 'verified'])
-//    ->name('dashboard');
-
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth'])->controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard', 'index')->name('dashboard');
+    Route::get('/dashboard/orders', 'orders')->name('dashboard.orders');
+    Route::get('/dashboard/integrations', 'integrations')->name('dashboard.integrations');
 });
 
 // fallback routes
