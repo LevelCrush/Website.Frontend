@@ -1,7 +1,7 @@
-@extends('layouts.standard')
+@extends('layouts.dashboard')
 
 @section('title', 'Dashboard | Level Crush')
 
-@section('content')
+@section('dashboard')
     <h1>Dashboard skeleton</h1>
 @stop
