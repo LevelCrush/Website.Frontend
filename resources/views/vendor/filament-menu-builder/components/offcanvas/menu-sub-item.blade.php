@@ -1,7 +1,7 @@
-<li>
+<li class="nav-item">
     <a
         target="{{ $item->target }}"
-        class="dropdown-item {{ $item->link_class }}"
+        class="nav-link {{ $item->link_class }}"
         href="{{ $item->link }}"
     >
         {{ $item->name }}

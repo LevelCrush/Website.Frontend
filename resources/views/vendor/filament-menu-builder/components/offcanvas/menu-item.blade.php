@@ -1,4 +1,4 @@
-<li class="nav-item {{ $item->wrapper_class }} @if(! $item->children->isEmpty()) dropdown @endif">
+<li class="nav-item {{ $item->wrapper_class }} @if(! $item->children->isEmpty()) submenu @endif">
     @if($item->children->isEmpty())
         <a
             target="{{ $item->target }}"
@@ -9,16 +9,15 @@
         </a>
     @else
         <a
-            class="nav-link dropdown-toggle {{ $item->link_class }}"
+            class="nav-link submenu-toggle {{ $item->link_class }}"
             href="{{ $item->link }}"
-            id="navbarDropdown"
             role="button"
-            data-bs-toggle="dropdown"
+            data-bs-toggle="expand"
             aria-expanded="false"
         >
             {{ $item->name }}
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="submenu" aria-labelledby="submenu">
             @foreach($item->children as $child)
                 @if($child->parameters->isNotEmpty() && isset($child->parameters['guest']))
                     @auth
