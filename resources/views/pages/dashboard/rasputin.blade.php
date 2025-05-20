@@ -1,8 +1,8 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Orders | Level Crush')
+@section('title', 'Rasputin | Level Crush')
 
 @section('dashboard')
-    <h1>Account Integrations</h1>
+    <h1>Rasputin</h1>
 @stop
 
